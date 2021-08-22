@@ -27,7 +27,7 @@ public class Main {
 
         //Read the numbers text line
         List<String> numbersStrs = Files.readAllLines(
-                Paths.get("C:/Users/DELL inspiron/Documents/GitHub/Software Construction/Calculator/numbers.txt")
+                Paths.get("numbers.txt")
         );
 
         double number1 = Double.parseDouble(numbersStrs.get(0));
