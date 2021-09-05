@@ -10,6 +10,7 @@ import java.io.IOException;
 public class Main {
     public static void main(String[] args) throws IOException {
 
+        // Main class is the coordinator now...
         CommandLineInputs inputs = new CommandLineInputs(args);
         String operation  = inputs.getOperator();
 
@@ -20,6 +21,8 @@ public class Main {
 
         double result = 0;
 
+        //OR USE SWITCH CASE
+        //Decision Making + Coordination
         if(operation.equals("add")){
             AddOperation addOperation = new AddOperation();
             result = addOperation.execute(numbers);
