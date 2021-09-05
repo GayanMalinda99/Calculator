@@ -32,11 +32,7 @@ public class Main {
         }else if (operation.equals("mul")){
             MulOperation mulOperation = new MulOperation();
             result = mulOperation.execute(numbers);
-        }else if (operation.equals("div")){
-            DivOperation divOperation = new DivOperation();
-            result = divOperation.execute(numbers);
         }
-
         System.out.println("The result is " + result);
     }
 }
