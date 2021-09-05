@@ -1,7 +1,6 @@
 package com.kelaniya.uni.v3;
 
 import com.kelaniya.uni.v3.operation.AddOperation;
-import com.kelaniya.uni.v3.operation.DivOperation;
 import com.kelaniya.uni.v3.operation.MulOperation;
 import com.kelaniya.uni.v3.operation.SubOperation;
 
@@ -33,6 +32,7 @@ public class Main {
             MulOperation mulOperation = new MulOperation();
             result = mulOperation.execute(numbers);
         }
+
         System.out.println("The result is " + result);
     }
 }

@@ -16,7 +16,7 @@ public class OperationFactory {
             operation = new MulOperation();
         }else if (operator.equals("div")){
             operation = new DivOperation();
-        }
+        } // Violation of OCP -> This is a known violation
 
         return operation;
 

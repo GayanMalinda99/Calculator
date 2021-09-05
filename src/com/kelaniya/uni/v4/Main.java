@@ -4,6 +4,7 @@ import com.kelaniya.uni.v4.operation.*;
 
 import java.io.IOException;
 
+//LISKOV Substitution Principle
 public class Main {
     public static void main(String[] args) throws IOException {
 
