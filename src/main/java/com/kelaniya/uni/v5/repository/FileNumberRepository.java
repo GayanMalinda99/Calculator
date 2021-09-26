@@ -5,10 +5,16 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 
-public class FileNumberRepository implements NumberRepository{
+public class FileNumberRepository implements NumberRepository {
 
-    public Double[] getNumber() throws IOException {
-        List<String> numbersStrs =  Files.readAllLines(Paths.get("numbers.txt"));
+    public Double[] getNumber() throws NumberRepositoryException {
+        //Read the numbers text file
+        List<String> numbersStrs = null;
+        try {
+            numbersStrs = Files.readAllLines(Paths.get("numbers.txt"));
+        } catch (IOException e) {
+            throw new NumberRepositoryException(e, "Couldn't read the text file.");
+        }
 
         double num1 = Double.parseDouble(numbersStrs.get(0));
         double num2 = Double.parseDouble(numbersStrs.get(1));

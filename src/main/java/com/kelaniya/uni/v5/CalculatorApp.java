@@ -2,11 +2,13 @@ package com.kelaniya.uni.v5;
 
 import com.kelaniya.uni.v5.input.CommandLineInputs;
 import com.kelaniya.uni.v5.input.Inputs;
+import com.kelaniya.uni.v5.input.InvalidInputException;
 import com.kelaniya.uni.v5.operation.InvalidCalOperationException;
 import com.kelaniya.uni.v5.operation.Operation;
 import com.kelaniya.uni.v5.operation.OperationFactory;
 import com.kelaniya.uni.v5.repository.FileNumberRepository;
 import com.kelaniya.uni.v5.repository.NumberRepository;
+import com.kelaniya.uni.v5.repository.NumberRepositoryException;
 import com.kelaniya.uni.v5.ui.CmdLineUI;
 import com.kelaniya.uni.v5.ui.UI;
 
@@ -28,19 +30,17 @@ public class CalculatorApp {
 
     }
 
-    public void execute() throws IOException { //we will change this in the future
+    public void execute() {
 
-        String operator  = inputs.getOperator();
-        Double[] numbers = numberRepository.getNumber();
-        Operation operation = operationFactory.getInstance(operator);
-        Double result = null;
         try {
-            result = operation.execute(numbers);
-        } catch (InvalidCalOperationException e) {
+            String operator = inputs.getOperator();
+            Double[] numbers = numberRepository.getNumber();
+            Operation operation = operationFactory.getInstance(operator);
+            Double result = operation.execute(numbers);
+            ui.showMessage("The result is " + result);
+        } catch (InvalidCalOperationException | InvalidInputException | NumberRepositoryException e) {
             ui.showMessage("Error Occurred! "+ e.getMessage());
-            return;
         }
-        ui.showMessage("The result is " + result);
 
     }
 

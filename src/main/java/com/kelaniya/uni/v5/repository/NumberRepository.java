@@ -2,5 +2,5 @@ package com.kelaniya.uni.v5.repository;
 
 import java.io.IOException;
 public interface NumberRepository {
-    Double[] getNumber() throws IOException;
+    Double[] getNumber() throws NumberRepositoryException;
 }
